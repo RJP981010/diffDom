@@ -21,6 +21,19 @@
     postcss "^8.4.14"
     source-map "^0.6.1"
 
+CSSselect@~0.4.0:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/CSSselect/-/CSSselect-0.4.1.tgz#f8ab7e1f8418ce63cda6eb7bd778a85d7ec492b2"
+  integrity sha512-r4HWARRbQ6enGbdPCrl3bNybORIcU0AcBLTyaxcWNTRd6EH2/w9RInHkUbUhwehrBFN1KQz+yFulhyIH31ZXAw==
+  dependencies:
+    CSSwhat "0.4"
+    domutils "1.4"
+
+CSSwhat@0.4:
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/CSSwhat/-/CSSwhat-0.4.7.tgz#867da0ff39f778613242c44cfea83f0aa4ebdf9b"
+  integrity sha512-bU5cYG02crjQGDN6wm8USThp/sr/MUulMTrVA1CENSBhv3B+mlJfYDP1em/wJlMT0aYcWso0cuT9NXW74yPfog==
+
 accepts@~1.3.4, accepts@~1.3.5, accepts@~1.3.8:
   version "1.3.8"
   resolved "https://registry.npmmirror.com/accepts/-/accepts-1.3.8.tgz#0bf0be125b67014adcb0b0921e62db7bffe16b2e"
@@ -1394,6 +1407,17 @@ check-types@^7.3.0:
   resolved "https://registry.npmmirror.com/check-types/-/check-types-7.4.0.tgz#0378ec1b9616ec71f774931a3c6516fad8c152f4"
   integrity sha512-YbulWHdfP99UfZ73NcUDlNJhEIDgm9Doq9GhpyXbF+7Aegi3CVV7qqMCKTTqJxlvEvnQBp9IA+dxsGN6xK/nSg==
 
+cheerio@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/cheerio/-/cheerio-0.18.0.tgz#4e1c06377e725b740e996e0dfec353863de677fa"
+  integrity sha512-SDCO2EGvIjjPxZiXT8d4NNOr1+sHTNFHp3bFprNYqI6YdUiZfQ5/r8z8YXQhDgplC+bpfT8812624t7iqL0Bqw==
+  dependencies:
+    CSSselect "~0.4.0"
+    dom-serializer "~0.0.0"
+    entities "~1.1.1"
+    htmlparser2 "~3.8.1"
+    lodash "~2.4.1"
+
 chokidar@^2.1.2, chokidar@^2.1.8:
   version "2.1.8"
   resolved "https://registry.npmmirror.com/chokidar/-/chokidar-2.1.8.tgz#804b3a7b6a99358c3c5c61e71d8728f041cff917"
@@ -2281,6 +2305,14 @@ dom-serializer@^1.0.1:
     domhandler "^4.2.0"
     entities "^2.0.0"
 
+dom-serializer@~0.0.0:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.0.1.tgz#9589827f1e32d22c37c829adabd59b3247af8eaf"
+  integrity sha512-evvizoLtT5uMpDT3iKRAx1NmTCk2ZdOD7ATqmL27QJkCv8XQmGKv/eFuvAjHhySNBACREAcXGBqozYhV1dOdag==
+  dependencies:
+    domelementtype "~1.1.1"
+    entities "~1.1.1"
+
 domain-browser@^1.1.1:
   version "1.2.0"
   resolved "https://registry.npmmirror.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
@@ -2296,12 +2328,39 @@ domelementtype@^2.0.1, domelementtype@^2.2.0:
   resolved "https://registry.npmmirror.com/domelementtype/-/domelementtype-2.3.0.tgz#5c45e8e869952626331d7aab326d01daf65d589d"
   integrity sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw==
 
+domelementtype@~1.1.1:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-1.1.3.tgz#bd28773e2642881aec51544924299c5cd822185b"
+  integrity sha512-zEvAAsFY0DeHkrqWBRkSsmgaE7yADgpez40JUFjISb+uzSinl2F6QbG4lMEBE4P06gCGF6VnsykmbNgu7ZIHzA==
+
+domhandler@2.3:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-2.3.0.tgz#2de59a0822d5027fabff6f032c2b25a2a8abe738"
+  integrity sha512-q9bUwjfp7Eif8jWxxxPSykdRZAb6GkguBGSgvvCrhI9wB71W2K/Kvv4E61CF/mcCfnVJDeDWx/Vb/uAqbDj6UQ==
+  dependencies:
+    domelementtype "1"
+
 domhandler@^4.0.0, domhandler@^4.2.0, domhandler@^4.3.1:
   version "4.3.1"
   resolved "https://registry.npmmirror.com/domhandler/-/domhandler-4.3.1.tgz#8d792033416f59d68bc03a5aa7b018c1ca89279c"
   integrity sha512-GrwoxYN+uWlzO8uhUXRl0P+kHE4GtVPfYzVLcUxPL7KNdHKj66vvlhiweIHqYYXWlw+T8iLMp42Lm67ghw4WMQ==
   dependencies:
     domelementtype "^2.2.0"
+
+domutils@1.4:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/domutils/-/domutils-1.4.3.tgz#0865513796c6b306031850e175516baf80b72a6f"
+  integrity sha512-ZkVgS/PpxjyJMb+S2iVHHEZjVnOUtjGp0/zstqKGTE9lrZtNHlNQmLwP/lhLMEApYbzc08BKMx9IFpKhaSbW1w==
+  dependencies:
+    domelementtype "1"
+
+domutils@1.5:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/domutils/-/domutils-1.5.1.tgz#dcd8488a26f563d61079e48c9f7b7e32373682cf"
+  integrity sha512-gSu5Oi/I+3wDENBsOWBiRK1eoGxcywYSqg3rR960/+EfY0CF4EX1VPkgHOZ3WiS/Jg2DtliF6BhWcHlfpYUcGw==
+  dependencies:
+    dom-serializer "0"
+    domelementtype "1"
 
 domutils@^1.7.0:
   version "1.7.0"
@@ -2414,10 +2473,20 @@ enhanced-resolve@^3.4.0:
     object-assign "^4.0.1"
     tapable "^0.2.7"
 
+entities@1.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/entities/-/entities-1.0.0.tgz#b2987aa3821347fcde642b24fdfc9e4fb712bf26"
+  integrity sha512-LbLqfXgJMmy81t+7c14mnulFHJ170cM6E+0vMXR9k/ZiZwgX8i5pNgjTCX3SO4VeUsFLV+8InixoretwU+MjBQ==
+
 entities@^2.0.0:
   version "2.2.0"
   resolved "https://registry.npmmirror.com/entities/-/entities-2.2.0.tgz#098dc90ebb83d8dffa089d55256b351d34c4da55"
   integrity sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==
+
+entities@~1.1.1:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.2.tgz#bdfa735299664dfafd34529ed4f8522a275fea56"
+  integrity sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==
 
 errno@^0.1.3, errno@~0.1.7:
   version "0.1.8"
@@ -3312,6 +3381,11 @@ html-webpack-plugin@^2.30.1:
     pretty-error "^2.0.2"
     toposort "^1.0.0"
 
+htmldiff-js@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/htmldiff-js/-/htmldiff-js-1.0.5.tgz#356df9eb646ab31c907f48051e2ef93f754c55f0"
+  integrity sha512-rmow9353OK0elkub15Sbze8Nj7BYfduqoJJw4yEvHHjOcHeCazNPk0PoUbjE8SvxKgjymeRIFU/OnS8jtitRtA==
+
 htmlparser2@^6.1.0:
   version "6.1.0"
   resolved "https://registry.npmmirror.com/htmlparser2/-/htmlparser2-6.1.0.tgz#c4d762b6c3371a05dbe65e94ae43a9f845fb8fb7"
@@ -3321,6 +3395,17 @@ htmlparser2@^6.1.0:
     domhandler "^4.0.0"
     domutils "^2.5.2"
     entities "^2.0.0"
+
+htmlparser2@~3.8.1:
+  version "3.8.3"
+  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.8.3.tgz#996c28b191516a8be86501a7d79757e5c70c1068"
+  integrity sha512-hBxEg3CYXe+rPIua8ETe7tmG3XDn9B0edOE/e9wH2nLczxzgdu0m0aNHY+5wFZiviLWLdANPJTssa92dMcXQ5Q==
+  dependencies:
+    domelementtype "1"
+    domhandler "2.3"
+    domutils "1.5"
+    entities "1.0"
+    readable-stream "1.1"
 
 http-deceiver@^1.2.7:
   version "1.2.7"
@@ -3859,6 +3944,11 @@ is-wsl@^1.1.0:
   resolved "https://registry.npmmirror.com/is-wsl/-/is-wsl-1.1.0.tgz#1f16e4aa22b04d1336b66188a66af3c600c3a66d"
   integrity sha512-gfygJYZ2gLTDlmbWMI0CE2MwnFzSN/2SZfkMlItC4K/JBlsWVDB0bO6XhqcY13YXE7iMcAJnzTCJjPiTeJJ0Mw==
 
+isarray@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
+  integrity sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ==
+
 isarray@1.0.0, isarray@^1.0.0, isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.npmmirror.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
@@ -4080,6 +4170,11 @@ lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.20, lodash@^4.17
   version "4.17.21"
   resolved "https://registry.npmmirror.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+lodash@~2.4.1:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
+  integrity sha512-Kak1hi6/hYHGVPmdyiZijoQyz5x2iGVzs6w9GYB/HiXEtylY7tIoYEROMjvM1d9nXJqPOrG2MNPMn01bJ+S0Rw==
 
 log-symbols@^2.1.0:
   version "2.2.0"
@@ -4372,15 +4467,10 @@ nan@^2.12.1:
   resolved "https://registry.npmmirror.com/nan/-/nan-2.17.0.tgz#c0150a2368a182f033e9aa5195ec76ea41a199cb"
   integrity sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==
 
-nanoid@^3.3.4:
+nanoid@^3.1.5, nanoid@^3.3.4:
   version "3.3.6"
-  resolved "https://registry.npmmirror.com/nanoid/-/nanoid-3.3.6.tgz#443380c856d6e9f9824267d960b4236ad583ea4c"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.6.tgz#443380c856d6e9f9824267d960b4236ad583ea4c"
   integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
-
-nanoid@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.npmmirror.com/nanoid/-/nanoid-4.0.2.tgz#140b3c5003959adbebf521c170f282c5e7f9fb9e"
-  integrity sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -5796,6 +5886,16 @@ read-pkg@^2.0.0:
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
 
+readable-stream@1.1:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.1.13.tgz#f6eef764f514c89e2b9e23146a75ba106756d23e"
+  integrity sha512-E98tWzqShvKDGpR2MbjsDkDQWLW2TfWUC15H4tNQhIJ5Lsta84l8nUGL9/ybltGwe+wZzWPpc1Kmd2wQP4bdCA==
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.1"
+    isarray "0.0.1"
+    string_decoder "~0.10.x"
+
 readable-stream@^3.0.6, readable-stream@^3.6.0:
   version "3.6.2"
   resolved "https://registry.npmmirror.com/readable-stream/-/readable-stream-3.6.2.tgz#56a9b36ea965c00c5a93ef31eb111a0f11056967"
@@ -6539,6 +6639,11 @@ string_decoder@^1.0.0, string_decoder@^1.1.1:
   dependencies:
     safe-buffer "~5.2.0"
 
+string_decoder@~0.10.x:
+  version "0.10.31"
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
+  integrity sha512-ev2QzSzWPYmy9GuqfIVildA4OdcGLeFZQrq5ys6RtiuF+RQQiZWr8TZNyAcuVXyQRYfEO+MsoB/1BuQVhOJuoQ==
+
 string_decoder@~1.1.1:
   version "1.1.1"
   resolved "https://registry.npmmirror.com/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
@@ -6583,6 +6688,18 @@ strip-indent@^1.0.1:
   integrity sha512-I5iQq6aFMM62fBEAIB/hXzwJD6EEZ0xEGCX2t7oXqaKPIRgt4WruAQ285BISgdkP+HLGWyeGmNJcpIwFeRYRUA==
   dependencies:
     get-stdin "^4.0.1"
+
+strip-tags@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/strip-tags/-/strip-tags-0.1.1.tgz#74bfdd46ba108ea527f5c63175f058037872b5e2"
+  integrity sha512-FlDOc6+BqAikRtsJPb8d/fKz9ckeuoUIvTI6Ujs3IGhzznMKBkkgLcP0MS14GrOD/DYLxo7kVYiMVB0Wqme8vA==
+  dependencies:
+    cheerio "^0.18.0"
+
+striptags@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/striptags/-/striptags-3.2.0.tgz#cc74a137db2de8b0b9a370006334161f7dd67052"
+  integrity sha512-g45ZOGzHDMe2bdYMdIvdAfCQkCTDMGBazSw1ypMowwGIee7ZQ5dU0rBJ8Jqgl+jAKIv4dbeE1jscZq9wid1Tkw==
 
 stylehacks@^4.0.0:
   version "4.0.3"
