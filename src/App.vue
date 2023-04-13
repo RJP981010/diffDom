@@ -6,12 +6,12 @@
     </nav>
     <router-view/> -->
     
-    <p>你的</p>
+    <!-- <p>你的</p> -->
     <!-- <span
       v-for="(item,index) in resultStr"
       :key="index"
       :class="item.added ? 'green' :item.removed ? 'red' : 'grey'">{{ item.value }}</span> -->
-    <span class="grey" v-html="beforeStr"></span>
+    <!-- <span class="grey" v-html="beforeStr"></span>
     <hr/>
     <p>他们的</p>
     <span class="grey" v-html="affterStr"></span>
@@ -38,15 +38,25 @@
         :class="item.added ? 'green' :item.removed ? 'red' : 'grey'">
       </span>
       
-    </template>
-    <div id="oldHtml" v-html="str1">
+    </template> -->
+    <div style="display: flex; margin-bottom: 40px">
+      <div>
+        <h3>原来的</h3>
+        <hr />
+        <div id="oldHtml" v-html="str1">
+        </div>
+      </div>
+      <div>
+        <h3>新的</h3>
+        <hr></hr>
+        <div id="newHtml" v-html="str2">
+        </div>
+      </div>
     </div>
     <hr/>
-    <div id="newHtml" v-html="str2">
+    <div id="htmlDiff" >
     </div>
-  <hr/>
-    <div id="htmlDiff" v-html="str3">
-    </div>
+    <div v-html="str3"></div>
     <!-- <div ref="diffResult" v-html="result"></div> -->
   </div>
 </template>
@@ -89,6 +99,37 @@ const striptags = require('striptags');
       handleHtml(html) {
         const text = striptags(html);
         console.log(text);
+      },
+      domClick(dom) {
+        // console.log(dom)
+        let operateType = dom.getAttribute("class")
+        const newDom = document.getElementById("htmlDiff").children[0].cloneNode(true) ; // 获取转换后的 DOM 对象
+        let diffins = newDom.querySelectorAll(".diffins")
+        let diffdel = newDom.querySelectorAll(".diffdel")
+        let diffmod = newDom.querySelectorAll(".diffmod");
+        [...diffins, ...diffmod, ...diffdel].forEach(element => {
+          let isUsed = element.getAttribute('data-isused') 
+          let nowElementOperateType = element.getAttribute("class")
+          element.removeAttribute("class")
+          element.style.textDecoration = 'unset'
+          if(isUsed) {
+            console.log(isUsed, 'isUsed')
+            console.log(operateType)
+           
+            if(nowElementOperateType == 'diffins') {
+
+            } else if(nowElementOperateType == 'diffmod') {
+
+            } else {
+              element.remove()
+            }
+          } else {
+            if(nowElementOperateType !== 'diffdel') {
+              element.remove()
+            }
+          }
+        })
+        this.str3 = newDom.outerHTML
       }
     },
     mounted() {
@@ -110,18 +151,40 @@ const striptags = require('striptags');
       // let oldHtml = document.getElementById('oldHtml');
       // let newHtml = document.getElementById('newHtml');
       // let diffHtml = document.getElementById('diffHtml');
-      
-      this.str3 = HtmlDiff.execute(this.str1, this.str2);
-      console.log(d)
+      // console.log(d)
       this.resultStr = d
+      let result = HtmlDiff.execute(this.str1, this.str2);
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(result, 'text/html');
+      const dom = doc.documentElement; // 获取转换后的 DOM 对象
+      let diffins = dom.querySelectorAll(".diffins")
+      let diffdel = dom.querySelectorAll(".diffdel")
+      let diffmod = dom.querySelectorAll(".diffmod");
+      [...diffins, ...diffmod, ...diffdel].forEach(element => {
+        element.addEventListener('click', (e) => {
+          e.stopPropagation();
+          // 处理点击事件的回调函数
+          console.log('点击了 DOM 元素', e.target);
+          e.target.setAttribute('data-isused', 'used')
+          this.domClick(e.target)
+        });
+        element.setAttribute('data-id', nanoid());
+      })
+      let fatherDom = document.getElementById("htmlDiff")
+      fatherDom.appendChild(dom)
+      this.str3 = this.str1
+      console.log(dom)
     }
   }
 </script>
 <style>
 #app {
-  width: 800px;
+  width: 1200px;
   padding: 50px;
   margin: auto;
+}
+#oldHtml {
+  margin-right: 30px;
 }
 .green {
   color: #42b983;
